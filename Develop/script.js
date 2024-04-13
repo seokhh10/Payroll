@@ -13,11 +13,31 @@ const collectEmployees = function() {
   const firstName = prompt("Enter the Employee' First Name:");
   const lastName = prompt("Enter the Employee' Last Name:");
   let employeeSalary = prompt("Enter the Employee' Salary:");
+  //check if salary is a number
+  while (employeeSalary) {
+    userInput = prompt("Please enter a number:");
+
+    if (userInput === null) {
+      break;
+      
+    }
+    if (!isNaN(userInput) && userInput !== "100") {
+      validNumber = true;
+      } else {
+        alert("Please enter a valid number.");
+      
+    }
+    
+  }
+  if (userInput !== null) {
+    alert("You entered: " + userInput);
+  } else {
+    alert("Operation cancelled.");
   }
 }
+  
+}
 addEmployeesBtn.addEventListener("click", collectEmployees);
-
-
 
 
 
