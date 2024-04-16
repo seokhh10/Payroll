@@ -1,54 +1,65 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
+const employeesArray = [];   //array to hold employees
       
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-  //array to hold employee objects 
-  const employeesArray = [];
-  //var to add user input for the first, last name and salary
-  let userInput = "";
-  let validNumber = false;
+  //Crate a loop to allow enter several employees
+  while (true) { 
+ 
+ 
   //create a while loop to collect employee data from user imput
-  while (userInput !== false) { 
+    
   const firstName = prompt("Enter the Employee' First Name:");
   const lastName = prompt("Enter the Employee' Last Name:");
-  let employeeSalary = false;
+  let employeeSalary;
   
   //check if salary is a number
-  while (!employeeSalary) {
-    userInput = prompt("Enter the Employee' Salary:");
-    if (userInput === null) { //exit the loop if input is null
-      break;
+  do {
+    employeeSalary = prompt("Enter the Employee' Salary:");
+    if (employeeSalary === null) { //exit the loop if input is null
+      return employeesArray;
       
     } 
     // check if user entered a valid number
-    if (!isNaN(userInput) && userInput !== "") {
-      employeeSalary = true;
+    if (!isNaN(employeeSalary) && employeeSalary.trim() !== "") {
+      employeeSalary = parseFloat(employeeSalary);
+      break; // exit the loop if salary is valid
       } else {
         alert("Please enter a valid number.");
       
     }
-    
-  }
-  if (userInput !== null) {
-    alert("You entered: " + userInput);
-  } else {
-    alert("Operation cancelled.");
-  }
+   
+  } while (true);
+  
+  const newEmployee = {   //const to hold new employee
+  firstName: firstName, 
+  lastName: lastName,
+  employeeSalary:parseFloat(employeeSalary)
+
+};
+employeesArray.push(newEmployee)   //push employee to the array
+const addAnotherEmployee = window.confirm("Would like to add another employee?");  //confirm if user wants to add another employee
+
+//if user doesn't want to add another employee exit the loop
+
+if (!addAnotherEmployee) {
+  break;
 }
+ 
+}
+
+return employeesArray;
   
 }
-addEmployeesBtn.addEventListener("click", collectEmployees);
-
-
-
-
 
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+
+  
 }
 
 // Select a random employee
