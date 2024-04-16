@@ -4,9 +4,9 @@ This Employee Payroll Tracker is a application that allows users to add employee
 
 ## Features
 
-*Add Employees: Users can enter employee data including first name, last name, and salary. Multiple employees can be added at once.
-*Display Average Salary: The system calculates and displays the average salary of all entered employees.
-*Select Random Employee: Users can select a random employee from the entered data.
+* Add Employees: Users can enter employee data including first name, last name, and salary. Multiple employees can be added at once.
+* Display Average Salary: The system calculates and displays the average salary of all entered employees.
+* Select Random Employee: Users can select a random employee from the entered data.
 
 ## Images Web Application
 
