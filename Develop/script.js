@@ -8,21 +8,23 @@ const collectEmployees = function() {
   const employeesArray = [];
   //var to add user input for the first, last name and salary
   let userInput = "";
+  let validNumber = false;
   //create a while loop to collect employee data from user imput
   while (userInput !== false) { 
   const firstName = prompt("Enter the Employee' First Name:");
   const lastName = prompt("Enter the Employee' Last Name:");
-  let employeeSalary = prompt("Enter the Employee' Salary:");
+  let employeeSalary = false;
+  
   //check if salary is a number
-  while (employeeSalary) {
-    userInput = prompt("Please enter a number:");
-
-    if (userInput === null) {
+  while (!employeeSalary) {
+    userInput = prompt("Enter the Employee' Salary:");
+    if (userInput === null) { //exit the loop if input is null
       break;
       
-    }
-    if (!isNaN(userInput) && userInput !== "100") {
-      validNumber = true;
+    } 
+    // check if user entered a valid number
+    if (!isNaN(userInput) && userInput !== "") {
+      employeeSalary = true;
       } else {
         alert("Please enter a valid number.");
       
