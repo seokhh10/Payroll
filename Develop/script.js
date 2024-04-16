@@ -13,18 +13,18 @@ const collectEmployees = function() {
     
   const firstName = prompt("Enter the Employee' First Name:");
   const lastName = prompt("Enter the Employee' Last Name:");
-  let employeeSalary;
+  let salary;
   
   //check if salary is a number
   do {
-    employeeSalary = prompt("Enter the Employee' Salary:");
-    if (employeeSalary === null) { //exit the loop if input is null
+    salary = prompt("Enter the Employee' Salary:");
+    if (salary === null) { //exit the loop if input is null
       return employeesArray;
       
     } 
     // check if user entered a valid number
-    if (!isNaN(employeeSalary) && employeeSalary.trim() !== "") {
-      employeeSalary = parseFloat(employeeSalary);
+    if (!isNaN(salary) && salary.trim() !== "") {
+      salary = parseFloat(salary);
       break; // exit the loop if salary is valid
       } else {
         alert("Please enter a valid number.");
@@ -36,7 +36,7 @@ const collectEmployees = function() {
   const newEmployee = {   //const to hold new employee
   firstName: firstName, 
   lastName: lastName,
-  employeeSalary:parseFloat(employeeSalary)
+  salary:parseFloat(salary)
 
 };
 employeesArray.push(newEmployee)   //push employee to the array
@@ -58,8 +58,12 @@ return employeesArray;
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
-
-  
+    let totalSalary = 0;
+    for (let i = 0; i < employeesArray.length; i++) {
+      totalSalary += employeesArray[i].salary;
+    }
+    const averageSalary = totalSalary / employeesArray.length;
+    console.log(`Average Salary: ${averageSalary}`);
 }
 
 // Select a random employee
